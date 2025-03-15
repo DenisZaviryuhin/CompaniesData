@@ -1,0 +1,11 @@
+databaseChangeLog:
+   - include:
+       relativeToChangeLogFile: true
+       file: changes/001-create-company.sql
+   - include:
+       relativeToChangeLogFile: true
+       file: changes/002-create-report.sql
+   - include:
+       relativeToChangeLogFile: true
+       file: changes/003-create-report-details.sql
+

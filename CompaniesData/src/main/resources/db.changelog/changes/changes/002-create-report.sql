@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS report (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    report_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    total_revenue DOUBLE NOT NULL,
+    net_profit DOUBLE NOT NULL,
+    company_id INT NOT NULL,
+    CONSTRAINT fk_report FOREIGN KEY (company_id) REFERENCES company(id) ON DELETE CASCADE
+);
