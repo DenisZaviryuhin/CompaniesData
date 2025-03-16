@@ -1,6 +1,5 @@
 package com.example.CompaniesData.controller;
 
-import com.example.CompaniesData.dto.CompanyInfoDto;
 import com.example.CompaniesData.dto.ReportDto;
 import com.example.CompaniesData.service.ReportService;
 import lombok.RequiredArgsConstructor;
@@ -20,9 +19,9 @@ public class ReportController {
     }
 
     @PostMapping("/{companyId}")
-    public ResponseEntity<CompanyInfoDto> addReportToCompany(@PathVariable("companyId") Long companyId,
+    public ResponseEntity<ReportDto> addReportToCompany(@PathVariable("companyId") Long companyId,
                                                              @RequestBody ReportDto reportDto) {
-        CompanyInfoDto dto = reportService.addReportToCompany(companyId, reportDto);
+        ReportDto dto = reportService.addReportToCompany(companyId, reportDto);
         return ResponseEntity.ok().body(dto);
 
     }

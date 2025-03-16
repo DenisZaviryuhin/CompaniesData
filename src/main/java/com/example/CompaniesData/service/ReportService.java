@@ -21,10 +21,9 @@ public class ReportService {
     private final ReportRepository reportRepository;
     private final ReportMapper reportMapper;
     private final CompanyRepository companyRepository;
-    private final CompanyMapper companyMapper;
     private final ReportDetailsMapper reportDetailsMapper;
 
-    public CompanyInfoDto addReportToCompany(Long companyId, ReportDto reportDto) {
+    public ReportDto addReportToCompany(Long companyId, ReportDto reportDto) {
         Company company = companyRepository.findById(companyId)
                 .orElseThrow(() -> new IllegalArgumentException("Company not found with id " + companyId));
         Report report = reportMapper.toEntity(reportDto);
@@ -35,7 +34,7 @@ public class ReportService {
         reportRepository.save(report);
         company.getReports().add(report);
         companyRepository.save(company);
-        return companyMapper.toDto(company);
+        return reportMapper.toDto(report);
 
 
     }
